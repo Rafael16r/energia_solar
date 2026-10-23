@@ -389,18 +389,18 @@ gantt
 
 A equipa deverá acordar a distribuição entre os quatro elementos identificados no rosto:
 
-| ID | Tarefa / resultado | Papel proposto | Responsável / revisor | Dependência |
+| ID | Tarefa | Responsável | Revisor | Depende de |
 |---|---|---|---|---|
-| T01 | Requisitos, proposta, Issues e atas semanais | Coordenação / ES | A atribuir / a atribuir | Nenhuma |
-| T02 | Cotações, montagem, circuitos e painel solar de bancada/INA219 | Hardware / IoT | A atribuir / a atribuir | T01 |
-| T03 | Firmware, relógio, fila e envio | Firmware / IoT | A atribuir / a atribuir | T02 |
-| T04 | Servidor, REST, MySQL e autenticação | Backend / SD | A atribuir / a atribuir | T01 |
-| T05 | Instalação, diário e campanha | IoT / dados | A atribuir / a atribuir | T03, T04 |
-| T06 | Fonte externa, limpeza e dados de treino | Dados / IA | A atribuir / a atribuir | T04, T05 |
-| T07 | Painel, modos e comandos de LED | Interface / integração | A atribuir / a atribuir | T03, T04 |
-| T08 | Modelos, avaliação e comparação energética | IA / gestão energética | A atribuir / a atribuir | T06 |
-| T09 | Guiões, falhas e evidências de validação | ES / testes | A atribuir / a atribuir | T07, T08 |
-| T10 | Relatórios, slides, vídeos, poster e revisão | Documentação / toda a equipa | A atribuir / a atribuir | Todas |
+| T01 | Requisitos, proposta, Issues e atas | **Iaia Baldé** | João Pedro | — |
+| T02 | Cotações, montagem, circuitos e painel solar/INA219 | **Rafael Ibraim** | Nelson Rafael | T01 |
+| T03 | Firmware, relógio, fila e envio | **Nelson Rafael** | Rafael Ibraim | T02 |
+| T04 | Servidor, REST, MySQL e autenticação | **João Pedro** | Nelson Rafael | T01 |
+| T05 | Instalação, diário e recolha de dados | **Rafael Ibraim** | Iaia Baldé | T03 e T04 |
+| T06 | Fonte externa, limpeza e dados de treino | **Iaia Baldé** | João Pedro | T04 e T05 |
+| T07 | Painel Web, modos e comandos dos LED | **João Pedro** | Rafael Ibraim | T03 e T04 |
+| T08 | Modelos de IA e comparação energética | **Nelson Rafael** | Iaia Baldé | T06 |
+| T09 | Guiões, testes de falha e evidências | **Iaia Baldé** | Rafael Ibraim | T07 e T08 |
+| T10 | Relatórios, slides, vídeos, poster e revisão | **Todos** | Revisão cruzada entre os quatro | Todas |
 
 Cada Issue deverá conter responsável real, prazo, dependências e critério de conclusão. No relatório final, a matriz de contribuições deverá indicar percentagens reais por tarefa que somem 100%, conforme exigido pelo briefing. Nesta fase não existem percentagens de execução comprovadas.
 
