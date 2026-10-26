@@ -9,8 +9,8 @@
 | Ano letivo / semestre | 2026–2027 / 5.º semestre |
 | Unidades curriculares | Sistemas Distribuídos; Computação Física e IoT; Inteligência Artificial; Engenharia de Software |
 | Projeto | Casa Eficiente |
-| Grupo | **Preencher antes da entrega** |
-| Repositório público GitHub | https://github.com/Rafael16r/energia_solar|
+| Grupo | 2 |
+| Repositório público GitHub | **Preencher antes da entrega** |
 | Entrega e apresentação — Milestone 1 | **27/10/2026, às 19:30** |
 | Briefing de referência | «Recolha e Tratamento de dados de sensores IoT», v1-20261020 |
 
@@ -242,7 +242,7 @@ flowchart LR
 
 > **Espaço reservado para inserir a imagem da arquitetura atualizada.** A imagem deverá incluir os três nós sensores, o servidor/API, a base de dados, a componente de IA e o nó atuador com o pequeno painel solar, o INA219, a resistência de carga e os quatro relés com LED.
 
-
+<!-- Para inserir a imagem: criar a pasta imagens junto deste README e adicionar arquitetura-casa-eficiente.png. Depois substituir o espaço reservado por: ![Arquitetura proposta do Casa Eficiente](imagens/arquitetura-casa-eficiente.png) -->
 
 **Fluxo de comando:** o atuador consulta comandos pendentes, verifica validade e sequência, altera a saída e confirma o resultado. Comandos expirados não são executados; sem atualização durante o prazo configurado, as saídas voltam ao estado seguro. A API distingue «solicitado» de «confirmado».
 
@@ -261,18 +261,17 @@ Entidades: `zones`, `devices`, `sensor_readings`, `external_readings`, `energy_s
 
 Exemplo ilustrativo de leitura, **não proveniente de recolha realizada**:
 
-```python
-
-leitura = {
-    "device_id": "node-z1",
-    "sequence": 123,
-    "zone_id": "Z1",
-    "timestamp_utc": "2026-11-02T12:00:00Z",
-    "motion": True,
-    "temperature_c": 23.4,
-    "relative_humidity_pct": 58.0,
-    "source": "real_sensor",
-    "quality": "valid"
+```json
+{
+  "device_id": "node-z1",
+  "sequence": 123,
+  "zone_id": "Z1",
+  "timestamp_utc": "2026-11-02T12:00:00Z",
+  "motion": true,
+  "temperature_c": 23.4,
+  "relative_humidity_pct": 58.0,
+  "source": "real_sensor",
+  "quality": "valid"
 }
 ```
 
@@ -306,7 +305,7 @@ Na avaliação simulada, calcular `E_rede = soma(max(0, P_carga - P_FV) × dura�
 
 ## 8. Guiões preliminares de teste
 
-Os guiões descrevem o percurso do utilizador e a evidência técnica associada. **Não foram executados nesta entrega.** Cada execução deverá registar data, versão, responsável a atribuir, dados de entrada, resultado obtido e estado aprovado/reprovado.
+Os guiões descrevem o percurso do utilizador e a evidência técnica associada. **Não foram executados nesta entrega.** Cada execução deverá registar data, versão, responsável pela execução, dados de entrada, resultado obtido e estado aprovado/reprovado.
 
 ### GT01 — Consultar uma zona e controlar a climatização simulada
 
@@ -359,7 +358,7 @@ As datas de execução são propostas internas; apenas as entregas expressamente
 | 19/12–14/01/2027 | Treino, avaliação temporal, decisões energéticas e robustez; margem para disponibilidade da equipa |
 | 15–29/01/2027 | Testes, integração final, documentação e preparação da apresentação; reservar 15/01 para plano de testes até esclarecer prazo ES |
 | 29/01/2027 | Relatório final IA, segundo tabela-resumo do briefing |
-| 01–02/02/2027 | Janela de trabalho para entrega/defesas finais,
+| 01–02/02/2027 | Janela de trabalho para entrega/defesas finais, a confirmar com os docentes |
 
 ```mermaid
 gantt
@@ -383,23 +382,24 @@ gantt
   Final por confirmar :milestone, m3, 2027-02-01, 0d
 ```
 
-### Tarefas e responsabilidades a atribuir
+### Tarefas e responsabilidades
 
+> **Nota:** a distribuição seguinte é uma proposta inicial, a validar pelos quatro elementos do grupo antes da entrega. A distribuição de tarefas integra obrigatoriamente a proposta inicial, conforme a secção 6 (p. 5) e a secção 10 (p. 10) do briefing. Esta tabela apresenta o trabalho planeado para todo o projeto; não representa contribuições já realizadas.
 
-A equipa deverá acordar a distribuição entre os quatro elementos identificados no rosto:
+Cada elemento é responsável por pelo menos uma tarefa e revê o trabalho de outro, de forma coerente com as frentes de trabalho da apresentação da Milestone 1:
 
-| ID | Tarefa | Responsável | Revisor | Depende de |
+| ID | Tarefa / resultado | Papel proposto | Responsável / revisor | Dependência |
 |---|---|---|---|---|
-| T01 | Requisitos, proposta, Issues e atas | **Iaia Baldé** | João Pedro | — |
-| T02 | Cotações, montagem, circuitos e painel solar/INA219 | **Rafael Ibraim** | Nelson Rafael | T01 |
-| T03 | Firmware, relógio, fila e envio | **Nelson Rafael** | Rafael Ibraim | T02 |
-| T04 | Servidor, REST, MySQL e autenticação | **João Pedro** | Nelson Rafael | T01 |
-| T05 | Instalação, diário e recolha de dados | **Rafael Ibraim** | Iaia Baldé | T03 e T04 |
-| T06 | Fonte externa, limpeza e dados de treino | **Iaia Baldé** | João Pedro | T04 e T05 |
-| T07 | Painel Web, modos e comandos dos LED | **João Pedro** | Rafael Ibraim | T03 e T04 |
-| T08 | Modelos de IA e comparação energética | **Nelson Rafael** | Iaia Baldé | T06 |
-| T09 | Guiões, testes de falha e evidências | **Iaia Baldé** | Rafael Ibraim | T07 e T08 |
-| T10 | Relatórios, slides, vídeos, poster e revisão | **Todos** | Revisão cruzada entre os quatro | Todas |
+| T01 | Requisitos, proposta, Issues e atas semanais | Coordenação / ES | João Pedro Benge do Espírito Santo Vieira / Iaia Baldé | Nenhuma |
+| T02 | Cotações, montagem, circuitos e painel solar de bancada/INA219 | Hardware / IoT | Nelson Rafael Soares Moreira / Rafael Ibraim Resende | T01 |
+| T03 | Firmware, relógio, fila e envio | Firmware / IoT | Nelson Rafael Soares Moreira / Rafael Ibraim Resende | T02 |
+| T04 | Servidor, REST, MySQL e autenticação | Backend / SD | Rafael Ibraim Resende / João Pedro Benge do Espírito Santo Vieira | T01 |
+| T05 | Instalação, diário e campanha | IoT / dados | Nelson Rafael Soares Moreira / Rafael Ibraim Resende | T03, T04 |
+| T06 | Fonte externa, limpeza e dados de treino | Dados / IA | Iaia Baldé / Nelson Rafael Soares Moreira | T04, T05 |
+| T07 | Painel, modos e comandos de LED | Interface / integração | Rafael Ibraim Resende / João Pedro Benge do Espírito Santo Vieira | T03, T04 |
+| T08 | Modelos, avaliação e comparação energética | IA / gestão energética | Iaia Baldé / Nelson Rafael Soares Moreira | T06 |
+| T09 | Guiões, falhas e evidências de validação | ES / testes | João Pedro Benge do Espírito Santo Vieira / Rafael Ibraim Resende | T07, T08 |
+| T10 | Relatórios, slides, vídeos, poster e revisão | Documentação / toda a equipa | João Pedro Benge do Espírito Santo Vieira / Iaia Baldé | Todas |
 
 Cada Issue deverá conter responsável real, prazo, dependências e critério de conclusão. No relatório final, a matriz de contribuições deverá indicar percentagens reais por tarefa que somem 100%, conforme exigido pelo briefing. Nesta fase não existem percentagens de execução comprovadas.
 
