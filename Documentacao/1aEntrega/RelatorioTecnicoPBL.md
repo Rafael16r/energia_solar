@@ -385,7 +385,6 @@ gantt
 
 ### Tarefas e responsabilidades a atribuir
 
-> **ALERTA — preencher antes da entrega:** indicar um responsável e um revisor do grupo em cada tarefa da tabela seguinte. A distribuição de tarefas integra obrigatoriamente a proposta inicial, conforme a secção 6 (p. 5) e a secção 10 (p. 10) do briefing. Esta tabela apresenta o trabalho planeado para todo o projeto; não representa contribuições já realizadas.
 
 A equipa deverá acordar a distribuição entre os quatro elementos identificados no rosto:
 
